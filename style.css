@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .container {
@@ -35,8 +36,22 @@
   background-color: rgb(164, 26, 168);
 }
 
+.calc-memory-buttons {
+  background-color: rgb(53, 212, 61);
+}
+
 .calc-buttons {
   background-color: rgb(161, 180, 75);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calc-buttons div {
+  border: 1px solid black;
+  width: 25%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .calc-body-right {
@@ -46,8 +61,8 @@
   flex: 1;
 }
 
-.calc-history-memory-menu{
-    background-color: rgb(153, 49, 80);  
+.calc-history-memory-menu {
+  background-color: rgb(153, 49, 80);
 }
 
 .calc-history {
