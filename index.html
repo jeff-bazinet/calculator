@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
@@ -14,8 +17,7 @@
     <div class="container">
       <div class="calc-body">
         <div class="calc-body-left">
-          <div class="calc-menu">calc-menu</div>
-          <div class="calc-display">calc-display</div>
+          <div class="calc-display">0</div>
           <div class="calc-memory-buttons">
             <div class="mc">MC</div>
             <div class="mr">MR</div>
@@ -25,36 +27,38 @@
             <div>MT</div>
           </div>
           <div class="calc-buttons">
-            <div>%</div>
-            <div>CE</div>
-            <div>C</div>
-            <div>BACK</div>
-            <div>1/x</div>
-            <div>EXP</div>
-            <div>SQ</div>
-            <div>/</div>
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-            <div>X</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>-</div>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>+</div>
-            <div>*/-</div>
-            <div>0</div>
-            <div>.</div>
-            <div>=</div>
+            <button id="btn-%" class="btn-symbol">%</button>
+            <button id="btn-ce" class="btn-symbol">CE</button>
+            <button id="btn-c" class="btn-symbol">C</button>
+            <button id="btn-back" class="btn-symbol">BACK</button>
+            <button id="btn-1x" class="btn-symbol">1/X</button>
+            <button id="btn-exp" class="btn-symbol">EXP</button>
+            <button id="btn-sq" class="btn-symbol">SQ</button>
+            <button id="btn-div" class="btn-symbol">/</button>
+            <button id="btn-7" class="btn-number">7</button>
+            <button id="btn-8" class="btn-number">8</button>
+            <button id="btn-9" class="btn-number">9</button>
+            <button id="btn-mul" class="btn-symbol">X</button>
+            <button id="btn-4" class="btn-number">4</button>
+            <button id="btn-5" class="btn-number">5</button>
+            <button id="btn-6" class="btn-number">6</button>
+            <button id="btn-min" class="btn-symbol">-</button>
+            <button id="btn-5" class="btn-number">1</button>
+            <button id="btn-5" class="btn-number">2</button>
+            <button id="btn-5" class="btn-number">3</button>
+            <button id="btn-add" class="btn-symbol">+</button>
+            <button id="btn-pm" class="btn-number">*/-</button>
+            <button id="btn-0" class="btn-number">0</button>
+            <button id="btn-." class="btn-number">.</button>
+            <button id="btn-eq" class="btn-equals">=</button>
           </div>
         </div>
         <div class="calc-body-right">
-          <div class="calc-history-memory-menu">calc-history-memory-menu</div>
-          <div class="calc-history">calc-history</div>
-          <div class="calc-memory">calc-memory</div>
+          <div class="calc-history-memory-menu">
+            <div>History</div>
+            <div>Memory</div>
+          </div>
+          <div class="calc-history-memory"></div>
         </div>
       </div>
     </div>
