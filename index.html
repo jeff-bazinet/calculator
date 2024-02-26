@@ -11,43 +11,35 @@
     />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="calculationMethods.js" defer></script>
-    <script src="eventListeners.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div class="calc-body">
-        <div class="calc-display">
-          <div class="calc-display-text"></div>
-          <div class="calc-display-equation"></div>
-        </div>
-        <div class="calc-buttons">
-          <button id="btn-%" class="btn-operator">%</button>
-          <button id="btn-ce" class="btn-operator">CE</button>
-          <button id="btn-c" class="btn-operator">C</button>
-          <button id="btn-back" class="btn-operator">BACK</button>
-          <button id="btn-1x" class="btn-operator">1/X</button>
-          <button id="btn-exp" class="btn-operator">EXP</button>
-          <button id="btn-sq" class="btn-operator">SQ</button>
-          <button id="btn-div" class="btn-operator">/</button>
-          <button id="btn-7" class="btn-number">7</button>
-          <button id="btn-8" class="btn-number">8</button>
-          <button id="btn-9" class="btn-number">9</button>
-          <button id="btn-mul" class="btn-operator">X</button>
-          <button id="btn-4" class="btn-number">4</button>
-          <button id="btn-5" class="btn-number">5</button>
-          <button id="btn-6" class="btn-number">6</button>
-          <button id="btn-min" class="btn-operator">-</button>
-          <button id="btn-1" class="btn-number">1</button>
-          <button id="btn-2" class="btn-number">2</button>
-          <button id="btn-3" class="btn-number">3</button>
-          <button id="btn-add" class="btn-operator">+</button>
-          <button id="btn-pm" class="btn-number">*/-</button>
-          <button id="btn-0" class="btn-number">0</button>
-          <button id="btn-." class="btn-number">.</button>
-          <button id="btn-eq" class="btn-equals">=</button>
-        </div>
+    <div class="calculator">
+      <div class="display">
+        <div class="previous-operand">x</div>
+        <div class="current-operand">x</div>
+      </div>
+      <div class="buttons">
+        <button class="two">AC</button>
+        <button>AC</button>
+        <button>BACK</button>
+        <button>BACK</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>/</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>*</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <button>+ / -</button>
+        <button>0</button>
+        <button>.</button>
+        <button>=</button>
       </div>
     </div>
   </body>
