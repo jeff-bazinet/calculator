@@ -4,14 +4,13 @@ let calculator = {
   currentOperand: '',
   operation: '',
   allClear() {
-    console.log('allClear()');
     this.currentOperand = '';
     this.previousOperand = '';
     this.operation = '';
     this.updateDisplay();
   },
   backspace() {
-    this.currentOperand = this.currentOperand.toString().slice(0, -1)
+    this.currentOperand = this.currentOperand.toString().slice(0, -1);
   },
   appendNumber(number) {
     console.log(`appendNumber()`);
@@ -37,6 +36,7 @@ let calculator = {
     let sum;
     // Only execute if the user set both operands before clicking equals.
     if (isNaN(prevNum) || isNaN(currentNum)) return;
+    console.log(this.operation);
     switch (this.operation) {
       case '+':
         sum = prevNum + currentNum;
@@ -47,7 +47,7 @@ let calculator = {
       case '*':
         sum = prevNum * currentNum;
         break;
-      case '/':
+      case '÷':
         sum = prevNum / currentNum;
         break;
       default:
@@ -59,7 +59,12 @@ let calculator = {
   },
   updateDisplay() {
     currentOperandDisplayText.innerText = this.currentOperand;
-    previousOperandDisplayText.innerText = this.previousOperand;
+    if (this.operation != '') {
+      previousOperandDisplayText.innerText = `${this.previousOperand} ${this.operation}`;
+    }
+    else{
+        previousOperandDisplayText.innerText = '';
+    }
   },
 };
 
@@ -109,7 +114,6 @@ equalsButton.addEventListener('click', () => {
 
 // Backspace button
 backspaceButton.addEventListener('click', () => {
-    calculator.backspace();
-    calculator.updateDisplay();
-  });
-  
+  calculator.backspace();
+  calculator.updateDisplay();
+});
