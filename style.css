@@ -74,10 +74,6 @@ body {
   background-color: rgb(190, 215, 245);
 }
 
-.buttons > button.two{
-  width: 200px;
-}
-
 .buttons > button:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }

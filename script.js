@@ -26,24 +26,25 @@ let calculator = {
 
     // If there is a current and previous operand, then execute the operation
     if (this.previousOperand !== '') {
-      calculator.compute();
+      calculator.operate();
     }
-    
+
     this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = '';
   },
-  compute() {
+  operate() {
     let prevNum = parseFloat(this.previousOperand);
     let currentNum = parseFloat(this.currentOperand);
     let sum;
-    
+
     // Only execute if the user set both operands before clicking equals.
     if (isNaN(prevNum) || isNaN(currentNum)) return;
 
     switch (this.operation) {
       case '+':
         sum = prevNum + currentNum;
+        sum = Number.isInteger(sum) ? sum : sum.toFixed(1);
         break;
       case '-':
         sum = prevNum - currentNum;
@@ -53,6 +54,9 @@ let calculator = {
         break;
       case '÷':
         sum = prevNum / currentNum;
+        break;
+      case '%':
+        sum = prevNum % currentNum;
         break;
       default:
         return;
@@ -74,14 +78,13 @@ let calculator = {
   togglePlusMinus() {
     if (this.currentOperand[0] !== '-') {
       this.currentOperand = '-' + this.currentOperand;
-    }
-    else{
-        this.currentOperand = this.currentOperand.slice(1)
+    } else {
+      this.currentOperand = this.currentOperand.slice(1);
     }
   },
 };
 
-// Query Selectors for buttons and operations. 
+// Query Selectors for buttons and operations.
 
 // Data attributes were used so we don't mix our styling classes with javascript.
 const numberButtons = document.querySelectorAll('[data-number]');
@@ -123,7 +126,7 @@ allClearButton.addEventListener('click', () => {
 
 // Equals button
 equalsButton.addEventListener('click', () => {
-  calculator.compute();
+  calculator.operate();
   calculator.updateDisplay();
 });
 
