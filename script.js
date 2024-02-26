@@ -1,3 +1,6 @@
+const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+const operations = ['+', '-', '*', '÷', '%', '=', 'Backspace', 'Escape'];
+
 // Calculator object which defines the data we need to store and the available methods
 let calculator = {
   previousOperand: '',
@@ -91,7 +94,7 @@ let calculator = {
   togglePlusMinus() {
     let currentOperand = this.currentOperand.toString();
 
-    if (currentOperand.slice(0,1) === '-') {
+    if (currentOperand.slice(0, 1) === '-') {
       // Minus exists. Remove It.
       this.currentOperand = currentOperand.slice(1);
     } else {
@@ -105,6 +108,7 @@ let calculator = {
 // Query Selectors for buttons and operations.
 
 // Data attributes were used so we don't mix our styling classes with javascript.
+const body = document.querySelector('body');
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
@@ -118,7 +122,35 @@ const currentOperandDisplayText = document.querySelector(
   '[data-current-operand]'
 );
 
+body.focus();
+
 // Event Listeners
+body.addEventListener('keydown', (e) => {
+  let key = e.key.toString();
+
+  if (key === '/') key = '÷';
+  if (key === 'Enter') key = `=`;
+
+  if (numbers.includes(key)) {
+    calculator.appendNumber(key);
+    calculator.updateDisplay();
+  }
+
+  if (operations.includes(key)) {
+    if (key === '=') {
+      calculator.operate();
+      calculator.updateDisplay();
+    } else if (key === 'Escape') {
+      calculator.allClear();
+    } else if (key === 'Backspace') {
+      calculator.backspace();
+      calculator.updateDisplay();
+    } else {
+      calculator.chooseOperation(key);
+      calculator.updateDisplay();
+    }
+  }
+});
 
 // Number button
 // For each button pressed, keep a running operand and update the display
