@@ -1,24 +1,19 @@
-let currentOperation = {
-  sum: 0,
-  previousNumber: null,
-  currentNumber: null,
-  previousOperator: null,
-  currentOperator: null,
-};
+let currentEquation = [];
 
 let sum = 0;
 let displayText = '';
+let displayTextEquation = '';
 
-function renderMenu() {}
-
-function renderDisplay(displayText = '0') {
-  const display = document.querySelector('.calc-display');
+function renderDisplayText(displayText = '0') {
+  const display = document.querySelector('.calc-display-text');
   display.textContent = displayText;
 }
 
-function renderButtons() {}
-function renderHistory() {}
-function renderMemory() {}
+function renderDisplayEquation(displayEquation) {
+  const displayEq = document.querySelector('.calc-display-equation');
+  displayEq.textContent = displayTextEquation.join(" ");
+}
 
-renderDisplay();
+renderDisplayText();
+renderDisplayEquation();
 add(1, 2);

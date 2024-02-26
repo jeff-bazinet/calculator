@@ -20,9 +20,22 @@
 }
 
 .calc-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-display-text {
   text-align: right;
   font-size: 24px;
   padding: 5px 20px;
+  min-height: 1px;
+}
+
+.calc-display-equation {
+  text-align: right;
+  font-size: 12px;
+  padding: 5px 20px;
+  min-height: 1px;
 }
 
 .calc-buttons {

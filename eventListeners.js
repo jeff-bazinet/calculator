@@ -4,19 +4,22 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     /* Number Buttons */
     if (button.classList.contains('btn-number')) {
-      console.log(button.textContent)
       displayText += button.textContent;
-      renderDisplay(displayText);
+      renderDisplayText(displayText);
     }
 
     /* Operator Buttons */
     if (button.classList.contains('btn-operator')) {
-      console.log(`btn-operator: ${button.id}`);
-      switch(button.id){
-        case 'btn-add':
-            console.log('add')
-            numbers.push(displayText)
-            console.log(numbers)
+      // console.log(`btn-operator: ${button.id}`);
+      switch (button.textContent) {
+        case '+':
+          let num = displayText;
+          currentEquation.push(num);
+          currentEquation.push('+');
+          displayTextEquation = currentEquation;
+          renderDisplayText(displayText);
+          renderDisplayEquation(currentEquation)
+          displayText = " ";
       }
     }
   });
