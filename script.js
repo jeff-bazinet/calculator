@@ -16,16 +16,19 @@ let calculator = {
     console.log(`appendNumber()`);
     // Do not allow more than one "." to be used.
     if (number === '.' && this.currentOperand.includes('.')) return;
+
     // Convert to string so that we can append text instead of js converting to a number
     this.currentOperand = this.currentOperand.toString() + number.toString();
   },
   chooseOperation(operation) {
     // Only execute this operation if there is a current operand.
     if (this.currentOperand === '') return;
+
     // If there is a current and previous operand, then execute the operation
     if (this.previousOperand !== '') {
       calculator.compute();
     }
+    
     this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = '';
@@ -34,9 +37,10 @@ let calculator = {
     let prevNum = parseFloat(this.previousOperand);
     let currentNum = parseFloat(this.currentOperand);
     let sum;
+    
     // Only execute if the user set both operands before clicking equals.
     if (isNaN(prevNum) || isNaN(currentNum)) return;
-    console.log(this.operation);
+
     switch (this.operation) {
       case '+':
         sum = prevNum + currentNum;
@@ -53,12 +57,14 @@ let calculator = {
       default:
         return;
     }
+
     this.currentOperand = sum;
     this.previousOperand = '';
     this.operation = '';
   },
   updateDisplay() {
     currentOperandDisplayText.innerText = this.currentOperand;
+
     if (this.operation != '') {
       previousOperandDisplayText.innerText = `${this.previousOperand} ${this.operation}`;
     } else {
@@ -66,7 +72,6 @@ let calculator = {
     }
   },
   togglePlusMinus() {
-    console.log('toggle');
     if (this.currentOperand[0] !== '-') {
       this.currentOperand = '-' + this.currentOperand;
     }
@@ -76,8 +81,9 @@ let calculator = {
   },
 };
 
-// Query Selectors for buttons and operations. Data attributes were used
-// so we don't mix our styling classes with javascript.
+// Query Selectors for buttons and operations. 
+
+// Data attributes were used so we don't mix our styling classes with javascript.
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
@@ -94,7 +100,7 @@ const currentOperandDisplayText = document.querySelector(
 // Event Listeners
 
 // Number button
-// For each button pressed, eep a running operand and update the display
+// For each button pressed, keep a running operand and update the display
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
     calculator.appendNumber(button.innerText);

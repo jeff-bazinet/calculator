@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #e7eaf6, #516996b4);
+  background: linear-gradient(to right, #e7eaf6, #3a5286ad);
   display: flex;
   justify-content: center;
   font-family: 'Noto Sans', sans-serif;
@@ -57,10 +57,21 @@ body {
   font-size: 24px;
   border: 1px solid white;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.75);
   width: 100px;
   height: 100px;
   font-weight: 500;
+}
+
+.buttons .number{
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.buttons .operator{
+  background-color: rgb(226, 226, 233);
+}
+
+.buttons .equals{
+  background-color: rgb(190, 215, 245);
 }
 
 .buttons > button.two{
@@ -70,3 +81,4 @@ body {
 .buttons > button:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
+
