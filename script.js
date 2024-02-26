@@ -61,9 +61,17 @@ let calculator = {
     currentOperandDisplayText.innerText = this.currentOperand;
     if (this.operation != '') {
       previousOperandDisplayText.innerText = `${this.previousOperand} ${this.operation}`;
+    } else {
+      previousOperandDisplayText.innerText = '';
+    }
+  },
+  togglePlusMinus() {
+    console.log('toggle');
+    if (this.currentOperand[0] !== '-') {
+      this.currentOperand = '-' + this.currentOperand;
     }
     else{
-        previousOperandDisplayText.innerText = '';
+        this.currentOperand = this.currentOperand.slice(1)
     }
   },
 };
@@ -75,6 +83,7 @@ const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const backspaceButton = document.querySelector('[data-backspace]');
 const allClearButton = document.querySelector('[data-all-clear]');
+const plusMinusButton = document.querySelector('[data-plus-minus]');
 const previousOperandDisplayText = document.querySelector(
   '[data-previous-operand]'
 );
@@ -115,5 +124,11 @@ equalsButton.addEventListener('click', () => {
 // Backspace button
 backspaceButton.addEventListener('click', () => {
   calculator.backspace();
+  calculator.updateDisplay();
+});
+
+// Plus Minus button
+plusMinusButton.addEventListener('click', () => {
+  calculator.togglePlusMinus();
   calculator.updateDisplay();
 });
