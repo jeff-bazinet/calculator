@@ -3,7 +3,6 @@ let calculator = {
   previousOperand: '',
   currentOperand: '',
   operation: '',
-  sum: 0,
   allClear() {
     console.log('allClear()');
     this.currentOperand = '';
@@ -11,7 +10,9 @@ let calculator = {
     this.operation = '';
     this.updateDisplay();
   },
-  backspace() {},
+  backspace() {
+    this.currentOperand = this.currentOperand.toString().slice(0, -1)
+  },
   appendNumber(number) {
     console.log(`appendNumber()`);
     // Do not allow more than one "." to be used.
@@ -23,14 +24,39 @@ let calculator = {
     // Only execute this operation if there is a current operand.
     if (this.currentOperand === '') return;
     // If there is a current and previous operand, then execute the operation
-    if(this.previousOperand !== ''){
-        calculator.compute();
+    if (this.previousOperand !== '') {
+      calculator.compute();
     }
     this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = '';
   },
-  compute() {},
+  compute() {
+    let prevNum = parseFloat(this.previousOperand);
+    let currentNum = parseFloat(this.currentOperand);
+    let sum;
+    // Only execute if the user set both operands before clicking equals.
+    if (isNaN(prevNum) || isNaN(currentNum)) return;
+    switch (this.operation) {
+      case '+':
+        sum = prevNum + currentNum;
+        break;
+      case '-':
+        sum = prevNum - currentNum;
+        break;
+      case '*':
+        sum = prevNum * currentNum;
+        break;
+      case '/':
+        sum = prevNum / currentNum;
+        break;
+      default:
+        return;
+    }
+    this.currentOperand = sum;
+    this.previousOperand = '';
+    this.operation = '';
+  },
   updateDisplay() {
     currentOperandDisplayText.innerText = this.currentOperand;
     previousOperandDisplayText.innerText = this.previousOperand;
@@ -74,3 +100,16 @@ operationButtons.forEach((button) => {
 allClearButton.addEventListener('click', () => {
   calculator.allClear();
 });
+
+// Equals button
+equalsButton.addEventListener('click', () => {
+  calculator.compute();
+  calculator.updateDisplay();
+});
+
+// Backspace button
+backspaceButton.addEventListener('click', () => {
+    calculator.backspace();
+    calculator.updateDisplay();
+  });
+  
