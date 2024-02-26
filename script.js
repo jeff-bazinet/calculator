@@ -19,7 +19,9 @@ let calculator = {
     // Convert to string so that we can append text instead of js converting to a number
     this.currentOperand =  this.currentOperand.toString() + number.toString();
   },
-  chooseOperation(operation) {},
+  chooseOperation(operation) {
+
+  },
   compute() {},
   updateDisplay() {
     currentOperandDisplayText.innerText = this.currentOperand;
@@ -40,7 +42,9 @@ const currentOperandDisplayText = document.querySelector(
   '[data-current-operand]'
 );
 
-// Add Event Listeners for each number button.
+// Event Listeners
+
+// Number button
 // For each button pressed, eep a running operand and update the display
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -49,3 +53,15 @@ numberButtons.forEach((button) => {
   });
 });
 
+// Operation button
+operationButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      calculator.chooseOperation(button.innerText);
+      calculator.updateDisplay();
+    });
+  });
+
+// All clear button
+allClearButton.addEventListener('click', ()=>{
+    calculator.allClear();
+})  
