@@ -48,15 +48,24 @@ let calculator = {
         break;
       case '-':
         sum = prevNum - currentNum;
+        sum = Number.isInteger(sum) ? sum : sum.toFixed(1);
         break;
       case '*':
         sum = prevNum * currentNum;
+        sum = Number.isInteger(sum) ? sum : sum.toFixed(1);
         break;
       case '÷':
+        if (currentNum === 0) {
+          alert('Cannot Divide By Zero');
+          sum = '';
+          break;
+        }
         sum = prevNum / currentNum;
+        sum = Number.isInteger(sum) ? sum : sum.toFixed(1);
         break;
       case '%':
         sum = prevNum % currentNum;
+        sum = Number.isInteger(sum) ? sum : sum.toFixed(1);
         break;
       default:
         return;
