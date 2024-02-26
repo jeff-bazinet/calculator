@@ -13,9 +13,14 @@ let calculator = {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   },
   appendNumber(number) {
-    console.log(`appendNumber()`);
     // Do not allow more than one "." to be used.
     if (number === '.' && this.currentOperand.includes('.')) return;
+
+    // Do not allow more than one number after the decimal place
+    if(this.currentOperand[this.currentOperand.length -2] === '.')
+    {
+        return;
+    }
 
     // Convert to string so that we can append text instead of js converting to a number
     this.currentOperand = this.currentOperand.toString() + number.toString();
